@@ -1,0 +1,143 @@
+.header {
+  .container {
+    height: 100vh;
+    background-image: url('../../images/background.jpg');
+    background-position: bottom left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .header__logo {
+      color: $color-white;
+      text-shadow: 0 0 40px $color-black;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate((-50%, -50%));
+
+      .header__logo__title {
+        font-size: 120px;
+        letter-spacing: 50px;
+        font-weight: $font-bigbold;
+        line-height: 0px;
+      }
+
+      .header__logo__subtitle {
+        text-align: center;
+        font-size: 18px;
+        letter-spacing: 6px;
+        line-height: 38px;
+        font-weight: $font-bigbold;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 100%;
+      width: 100%;
+      left: 0;
+      bottom: -5%;
+      background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 1),
+        rgb(0, 0, 0, 0)
+      );
+    }
+  }
+
+  .navigation {
+    text-align: center;
+    padding: 50px;
+
+    .navigation__menu {
+      padding: 0;
+
+      li {
+        display: inline-block;
+        list-style-type: none;
+
+        a {
+          color: $color-gray;
+          text-decoration: none;
+          padding: 0 40px;
+          text-transform: uppercase;
+          font-size: 16px;
+          letter-spacing: 1.5px;
+          font-weight: $font-semibold;
+
+          &:hover {
+            color: $color-white;
+          }
+
+          &.active {
+            color: $color-one;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header {
+    .container {
+      .header__logo {
+        .header__logo__title {
+          font-size: 80px;
+          letter-spacing: 40px;
+        }
+
+        .header__logo__subtitle {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .navigation {
+      padding: 30px;
+
+      .navigation__menu {
+        li {
+          a {
+            padding: 0 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    .container {
+      .header__logo {
+        .header__logo__title {
+          font-size: 50px;
+          letter-spacing: 20px;
+        }
+
+        .header__logo__subtitle {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .navigation {
+      padding: 20px;
+
+      .navigation__menu {
+        padding: 0;
+
+        li {
+          display: block;
+
+          a {
+            padding: 0 10px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
