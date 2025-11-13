@@ -14,3 +14,13 @@ body {
   font-weight: $font-regular;
   color: $color-white;
 }
+
+#pages {
+  > * {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
+}

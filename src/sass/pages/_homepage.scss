@@ -1,0 +1,206 @@
+.subscribe {
+  width: 100%;
+
+  .subscribe__wrapper {
+    background-image: url('../../images/subscribe.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    height: 90vh;
+
+    .subscribe__wrapper-title {
+      position: absolute;
+      left: 50%;
+      top: -20%;
+      transform: translateX(-50%);
+      font-size: 80px;
+      letter-spacing: 10px;
+      font-weight: $font-semibold;
+      white-space: nowrap;
+
+      span {
+        letter-spacing: 16px;
+        font-weight: $font-bigbold;
+      }
+    }
+
+    .subscribe__wrapper-artist {
+      position: absolute;
+      top: 25%;
+      right: 20%;
+
+      img {
+        width: 260px;
+        height: 320px;
+        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+        position: absolute;
+        top: 35%;
+        right: 48%;
+        font-size: 50px;
+        letter-spacing: 1.1vw;
+        text-transform: none;
+        line-height: 60px;
+        white-space: pre;
+        font-weight: $font-bigbold;
+        text-shadow: 15px 5px 5px rgba(0, 0, 0, 0.2);
+
+        .span__color {
+          color: $color-one;
+        }
+
+        .invisible__space {
+          display: inline-block;
+          width: 1.8ch;
+          visibility: hidden;
+        }
+      }
+    }
+
+    .subscribe__wrapper-album {
+      position: absolute;
+      bottom: 5%;
+      right: 17%;
+      line-height: 10px;
+      letter-spacing: 8px;
+
+      h3 {
+        font-size: 30px;
+        text-align: right;
+        color: $color-gray;
+      }
+
+      p {
+        font-size: 30px;
+        font-weight: $font-semibold;
+        white-space: nowrap;
+      }
+    }
+
+    .subscribe__wrapper-join {
+      position: absolute;
+      top: 60%;
+      left: 30%;
+
+      .subscribe__button {
+        background-color: $color-one;
+        text-align: center;
+        padding: 18px 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 100px 100px rgba(0, 0, 0, 0.2);
+
+        a {
+          text-decoration: none;
+          color: $color-white;
+          font-size: 22px;
+          letter-spacing: 4px;
+          font-weight: $font-bold;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 820px) and (max-width: 1100px) {
+  .subscribe {
+    .subscribe__wrapper {
+      .subscribe__wrapper-title {
+        font-size: 60px;
+        top: -14%;
+        letter-spacing: 8px;
+
+        span {
+          letter-spacing: 14px;
+        }
+      }
+
+      .subscribe__wrapper-artist {
+        img {
+          width: 200px;
+          height: 260px;
+        }
+
+        h2 {
+          font-size: 40px;
+        }
+      }
+
+      .subscribe__wrapper-album {
+        line-height: 6px;
+        bottom: 15%;
+      }
+
+      .subscribe__wrapper-join {
+        top: 50%;
+        left: 20%;
+
+        .subscribe__button {
+          padding: 16px 18px;
+
+          a {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 820px) {
+  .subscribe {
+    .subscribe__wrapper {
+      .subscribe__wrapper-title {
+        font-size: 30px;
+        top: -7%;
+        letter-spacing: 5px;
+
+        span {
+          letter-spacing: 10px;
+        }
+      }
+
+      .subscribe__wrapper-artist {
+        img {
+          width: 170px;
+          height: 230px;
+        }
+
+        h2 {
+          font-size: 30px;
+          right: 60%;
+        }
+      }
+
+      .subscribe__wrapper-album {
+        line-height: 3px;
+        bottom: 20%;
+
+        h3 {
+          font-size: 20px;
+        }
+
+        p {
+          font-size: 18px;
+          white-space: normal;
+          text-align: right;
+          line-height: normal;
+        }
+      }
+
+      .subscribe__wrapper-join {
+        top: 30%;
+        left: 10%;
+
+        .subscribe__button {
+          padding: 14px 16px;
+
+          a {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
