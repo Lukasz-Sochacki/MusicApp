@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MusicApp</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +50,10 @@
         </section>
     </div>
 
+
+
+
+    <script id="template-home" type="text/x-handlebars-template">
     <section class="subscribe">
         <div class="subscribe__wrapper">
             <h1 class="subscribe__wrapper-title">SUBSCRIBE <span>NOW</span></h1>
@@ -67,11 +73,21 @@
             </div>
         </div>
     </section>
+</script>
+
+    <script id="template-search" type="text/x-handlebars-template">
+        <p>SEARCH SUBPAGE</p>
+</script>
+    <script id="template-discover" type="text/x-handlebars-template">
+       <p> DISCOVER SUBPAGE</p>
+</script>
 
 
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
 
     <script src="js/app.js" type="module"></script>
 </body>

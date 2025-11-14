@@ -1,6 +1,54 @@
-import { select, classNames } from './settings.js';
+import { select, classNames, settings } from './settings.js';
+import Home from './Components/Home.js';
+import Search from './Components/Search.js';
+import Discover from './Components/Discover.js';
 
 const app = {
+  initHome: function () {
+    const thisApp = this;
+
+    thisApp.homeContainer = document.querySelector(select.containerOf.home);
+
+    thisApp.home = new Home(thisApp.homeContainer);
+  },
+
+  initSearch: function () {
+    const thisApp = this;
+
+    thisApp.searchContainer = document.querySelector(select.containerOf.search);
+
+    thisApp.search = new Search(thisApp.searchContainer);
+  },
+
+  initDiscover: function () {
+    const thisApp = this;
+
+    thisApp.discoverContainer = document.querySelector(
+      select.containerOf.discover
+    );
+
+    thisApp.discover = new Discover(thisApp.discoverContainer);
+  },
+
+  initData: function () {
+    const thisApp = this;
+    thisApp.data = {};
+
+    const url = settings.db.url + '/' + settings.db.songs;
+
+    fetch(url)
+      .then(function (rawResponse) {
+        return rawResponse.json();
+      })
+      .then(function (parsedResponse) {
+        console.log('parsedResponse: ', parsedResponse);
+        thisApp.data.songs = parsedResponse;
+      });
+
+    thisApp.initDiscover();
+    thisApp.initSearch();
+  },
+
   initPages: function () {
     const thisApp = this;
 
@@ -54,7 +102,10 @@ const app = {
 
   init: function () {
     const thisApp = this;
+
+    thisApp.initData();
     thisApp.initPages();
+    thisApp.initHome();
   },
 };
 
