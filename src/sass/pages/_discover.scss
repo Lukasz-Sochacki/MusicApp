@@ -1,0 +1,51 @@
+.discover {
+  width: 100%;
+
+  .discover__wrapper {
+    text-align: center;
+
+    .discover__wrapper-title {
+      color: $color-gray;
+      letter-spacing: 6px;
+      font-size: 35px;
+      font-weight: $font-semibold;
+    }
+
+    .discover__wrapper-subtitle {
+      color: $color-white;
+      letter-spacing: 2px;
+      font-weight: $font-regular;
+      text-transform: none;
+      margin-bottom: 100px;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-gray;
+      }
+    }
+  }
+}
+
+@media (min-width: 820px) and (max-width: 1100px) {
+  .discover {
+    .discover__wrapper {
+      .discover__wrapper-title {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 820px) {
+  .discover {
+    .discover__wrapper {
+      .discover__wrapper-title {
+        font-size: 26px;
+      }
+
+      .discover__wrapper-subtitle {
+        font-size: 12px;
+      }
+    }
+  }
+}

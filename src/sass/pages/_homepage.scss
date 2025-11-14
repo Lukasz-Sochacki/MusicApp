@@ -1,5 +1,6 @@
 .subscribe {
   width: 100%;
+  margin-top: 100px;
 
   .subscribe__wrapper {
     background-image: url('../../images/subscribe.jpg');
@@ -97,6 +98,10 @@
           font-size: 22px;
           letter-spacing: 4px;
           font-weight: $font-bold;
+
+          &:hover {
+            color: $color-gray;
+          }
         }
       }
     }

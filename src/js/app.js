@@ -2,6 +2,7 @@ import { select, classNames, settings } from './settings.js';
 import Home from './Components/Home.js';
 import Search from './Components/Search.js';
 import Discover from './Components/Discover.js';
+import AudioPlayer from './Components/AudioPlayer.js';
 
 const app = {
   initHome: function () {
@@ -10,6 +11,24 @@ const app = {
     thisApp.homeContainer = document.querySelector(select.containerOf.home);
 
     thisApp.home = new Home(thisApp.homeContainer);
+  },
+
+  initAudioPlayer: function () {
+    // eslint-disable-next-line no-undef
+    GreenAudioPlayer.init({
+      selector: select.player,
+      stopOthersOnPlay: true,
+    });
+  },
+
+  initPlaylist: function () {
+    const thisApp = this;
+    thisApp.audioWrapper = select.containerOf.audio;
+
+    for (let song in thisApp.data) {
+      new AudioPlayer(thisApp.data[song], thisApp.audioWrapper);
+    }
+    thisApp.initAudioPlayer();
   },
 
   initSearch: function () {
@@ -32,7 +51,7 @@ const app = {
 
   initData: function () {
     const thisApp = this;
-    thisApp.data = {};
+    thisApp.data = [];
 
     const url = settings.db.url + '/' + settings.db.songs;
 
@@ -42,11 +61,11 @@ const app = {
       })
       .then(function (parsedResponse) {
         console.log('parsedResponse: ', parsedResponse);
-        thisApp.data.songs = parsedResponse;
+        thisApp.data = parsedResponse;
+        thisApp.initPlaylist();
+        thisApp.initDiscover();
+        thisApp.initSearch();
       });
-
-    thisApp.initDiscover();
-    thisApp.initSearch();
   },
 
   initPages: function () {
@@ -79,7 +98,7 @@ const app = {
         /* run thisApp.activatePage with that ID */
         thisApp.activatePage(id);
         /* change URL hash */
-        window.location.hash = '#/' + id;
+        window.location.hash = '#' + id;
       });
     }
   },

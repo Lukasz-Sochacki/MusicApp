@@ -3,16 +3,19 @@ export const select = {
     home: '#template-home',
     search: '#template-search',
     discover: '#template-discover',
+    audio: '#template-audio',
   },
   containerOf: {
     pages: '#pages',
     home: '.home-wrapper',
     search: '.search-wrapper',
     discover: '.discover-wrapper',
+    audio: '.audio-wrapper',
   },
   nav: {
     links: '.navigation__menu li a',
   },
+  player: '.ready-player-',
 };
 
 export const classNames = {
@@ -44,5 +47,8 @@ export const templates = {
   ),
   discover: Handlebars.compile(
     document.querySelector(select.templateOf.discover).innerHTML
+  ),
+  audio: Handlebars.compile(
+    document.querySelector(select.templateOf.audio).innerHTML
   ),
 };

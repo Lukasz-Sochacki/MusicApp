@@ -38,6 +38,7 @@
 
     <div id="pages">
         <section id="home">
+            <div class="audio-wrapper container"></div>
             <div class="home-wrapper container"></div>
         </section>
 
@@ -50,8 +51,28 @@
         </section>
     </div>
 
+    <script id="template-audio" type="text/x-handlebars-template">
 
-
+        <section class="audio">
+            <div class="audio__wrapper">
+                <div class="audio__wrapper-info">
+                    <span class="audio-author">{{ author }} - </span>
+                    <span class="audio-title">{{ title }}</span>
+                </div>
+                <div class="audio__wrapper-player">
+                    <div class="ready-player- {{ id }} player">
+                        <audio crossorigin preload="none">
+                            <source src="songs/{{ filename }}" type="audio/mpeg">
+                         </audio>
+                    </div>
+                </div>
+                <div class="audio__Wrapper-details">
+                    <span class="audio-details-categories">"Categories: "{{ categories }}</span>
+                    <span class="audio-details-ranking">#{{ ranking }} in the ranking</span>
+                </div>
+            </div>
+        </section>
+</script>
 
     <script id="template-home" type="text/x-handlebars-template">
     <section class="subscribe">
@@ -76,18 +97,51 @@
 </script>
 
     <script id="template-search" type="text/x-handlebars-template">
-        <p>SEARCH SUBPAGE</p>
+
+        <section class="search">
+            <div class="search__wrapper">
+                <h1 class="search__wrapper-title">SEARCH</h1>
+                <form class="search__wrapper-form">
+                    <label for="search" class="search__name">Name</label>
+                    <input type="text" class="search__input" id="search__input" name="search__input">
+                    <button class="search__button" type="submit">SEARCH</button>
+                </form>
+            </div>
+        </section>
 </script>
+
     <script id="template-discover" type="text/x-handlebars-template">
-       <p> DISCOVER SUBPAGE</p>
+        <section class="discover">
+            <div class="discover__wrapper">
+                <h1 class="discover__wrapper-title">DISCOVER</h1>
+                <h2 class="discover__wrapper-subtitle">Give it a try!</h2>
+            </div>
+        </section>
 </script>
 
+    <footer>
+        <div class="footer">
+            <p>All right reserved</p>
+        </div>
+    </footer>
 
+    <!-- <div class="ready-player-1">
+        <audio crossorigin preload="none">
+            <source src="./songs/At_The_Top_David_Renda.mp3" type="audio/mpeg">
+        </audio>
+    </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new GreenAudioPlayer('.ready-player-1', { showTooltips: true, showDownloadButton: false, enableKeystrokes: true });
+        });
+    </script> -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+
+
 
     <script src="js/app.js" type="module"></script>
 </body>
