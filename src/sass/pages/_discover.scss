@@ -12,20 +12,24 @@
     }
 
     .discover__wrapper-subtitle {
+      display: inline-block;
+      padding: 5px;
       color: $color-white;
       letter-spacing: 2px;
       font-weight: $font-regular;
       text-transform: none;
-      margin-bottom: 100px;
       cursor: pointer;
 
       &:hover {
         color: $color-gray;
       }
+
+      &.clicked {
+        color: $color-one;
+      }
     }
   }
 }
-
 @media (min-width: 820px) and (max-width: 1100px) {
   .discover {
     .discover__wrapper {

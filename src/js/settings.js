@@ -10,10 +10,12 @@ export const select = {
     home: '.home-wrapper',
     search: '.search-wrapper',
     discover: '.discover-wrapper',
+    discover_generatedSong: '.discover__generatedSong',
     audio: '.audio-wrapper',
   },
   nav: {
     links: '.navigation__menu li a',
+    chooseSong: '.discover__wrapper-subtitle',
   },
   player: '.ready-player-',
 

@@ -47,7 +47,7 @@ const app = {
       select.containerOf.discover
     );
 
-    thisApp.discover = new Discover(thisApp.discoverContainer);
+    thisApp.discover = new Discover(thisApp.discoverContainer, thisApp.data);
   },
 
   initData: function () {
