@@ -17,8 +17,6 @@ class AudioPlayer {
 
     const audioContainer = document.querySelector(element);
 
-    console.log(audioContainer);
-
     thisAudio.element = utils.createDOMFromHTML(generatedHTML);
 
     audioContainer.appendChild(thisAudio.element);

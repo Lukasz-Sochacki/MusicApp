@@ -16,6 +16,9 @@ export const select = {
     links: '.navigation__menu li a',
   },
   player: '.ready-player-',
+
+  upperCase: '.uppercase',
+  capitalize: '.capitalize',
 };
 
 export const classNames = {

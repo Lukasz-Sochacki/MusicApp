@@ -19,22 +19,28 @@
 
 <body>
 
+    <!-- Header -->
+
     <header class="header">
         <div class="container">
             <div class="header__logo">
-                <h1 class="header__logo__title">taste</h1>
-                <h2 class="header__logo__subtitle">engage<br>in<br>art</h2>
+                <h1 class="header__logo__title uppercase">taste</h1>
+                <h2 class="header__logo__subtitle">ENGAGE<br>IN<br>ART</h2>
             </div>
         </div>
 
+        <!-- Navigation -->
+
         <div class="navigation">
             <ul class="navigation__menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#search">Search</a></li>
-                <li><a href="#discover">Discover</a></li>
+                <li><a href="#home" class="uppercase">Home</a></li>
+                <li><a href="#search" class="uppercase">Search</a></li>
+                <li><a href="#discover" class="uppercase">Discover</a></li>
             </ul>
         </div>
     </header>
+
+    <!-- Subpages -->
 
     <div id="pages">
         <section id="home">
@@ -51,6 +57,8 @@
         </section>
     </div>
 
+    <!-- Handlebars: AudioPlayer  -->
+
     <script id="template-audio" type="text/x-handlebars-template">
 
         <section class="audio">
@@ -66,83 +74,75 @@
                          </audio>
                     </div>
                 </div>
-                <div class="audio__Wrapper-details">
-                    <span class="audio-details-categories">"Categories: "{{ categories }}</span>
+                <div class="audio__wrapper-details">
+                    <span class="audio-details-categories">Categories: {{ categories  }}</span>
                     <span class="audio-details-ranking">#{{ ranking }} in the ranking</span>
                 </div>
             </div>
         </section>
 </script>
 
+    <!-- Handlebars: Home subpage  -->
+
     <script id="template-home" type="text/x-handlebars-template">
     <section class="subscribe">
         <div class="subscribe__wrapper">
-            <h1 class="subscribe__wrapper-title">SUBSCRIBE <span>NOW</span></h1>
+            <h1 class="subscribe__wrapper-title uppercase">Subscribe <span>Now</span></h1>
 
             <div class="subscribe__wrapper-artist">
                 <img src="./images/artist.jpg" alt="artist">
                 <h2>Dean<br><span class="invisible__space"></span>Hen<span class="span__color">son</span></h2>
             </div>
             <div class="subscribe__wrapper-album">
-                <h3>NEW ALBUM</h3>
-                <p>Available only for subscribers</p>
+                <h3 class="uppercase">New album</h3>
+                <p class="capitalize">available only for subscribers</p>
             </div>
             <div class="subscribe__wrapper-join">
                 <div class="subscribe__button">
-                    <a href="#/join-now">JOIN NOW</a>
+                    <a href="#/join-now" class="uppercase">Join now</a>
                 </div>
             </div>
         </div>
     </section>
 </script>
 
+    <!-- Handlebars: Search subpage  -->
+
     <script id="template-search" type="text/x-handlebars-template">
 
         <section class="search">
             <div class="search__wrapper">
-                <h1 class="search__wrapper-title">SEARCH</h1>
+                <h1 class="search__wrapper-title uppercase">Search</h1>
                 <form class="search__wrapper-form">
-                    <label for="search" class="search__name">Name</label>
+                    <label for="search" class="search__name capitalize">name</label>
                     <input type="text" class="search__input" id="search__input" name="search__input">
-                    <button class="search__button" type="submit">SEARCH</button>
+                    <button class="search__button uppercase" type="submit">Search</button>
                 </form>
             </div>
         </section>
 </script>
 
+    <!-- Handlebars: Discover subpage  -->
+
     <script id="template-discover" type="text/x-handlebars-template">
         <section class="discover">
             <div class="discover__wrapper">
-                <h1 class="discover__wrapper-title">DISCOVER</h1>
-                <h2 class="discover__wrapper-subtitle">Give it a try!</h2>
+                <h1 class="discover__wrapper-title uppercase">Discover</h1>
+                <h2 class="discover__wrapper-subtitle capitalize">give it a try!</h2>
             </div>
         </section>
 </script>
 
+    <!-- Footer  -->
+
     <footer>
         <div class="footer">
-            <p>All right reserved</p>
+            <p class="capitalize">all right reserved</p>
         </div>
     </footer>
 
-    <!-- <div class="ready-player-1">
-        <audio crossorigin preload="none">
-            <source src="./songs/At_The_Top_David_Renda.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            new GreenAudioPlayer('.ready-player-1', { showTooltips: true, showDownloadButton: false, enableKeystrokes: true });
-        });
-    </script> -->
-
-
     <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
-
-
-
     <script src="js/app.js" type="module"></script>
 </body>
 

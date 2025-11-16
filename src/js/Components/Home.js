@@ -13,6 +13,7 @@ class Home {
     const generatedHTML = templates.home();
 
     thisHome.dom = {};
+
     thisHome.dom.wrapper = document.querySelector(select.containerOf.home);
     thisHome.dom.wrapper.innerHTML = generatedHTML;
   }

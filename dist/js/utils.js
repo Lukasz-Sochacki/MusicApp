@@ -6,4 +6,10 @@ utils.createDOMFromHTML = function (htmlString) {
   return div.firstChild;
 };
 
+utils.capitalizeFirstLetter = function (htmlString) {
+  if (htmlString) {
+    return htmlString.charAt(0).toUpperCase() + htmlString.slice(1);
+  } else return '';
+};
+
 export default utils;

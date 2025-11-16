@@ -3,6 +3,7 @@ import Home from './Components/Home.js';
 import Search from './Components/Search.js';
 import Discover from './Components/Discover.js';
 import AudioPlayer from './Components/AudioPlayer.js';
+import utils from './utils.js';
 
 const app = {
   initHome: function () {
@@ -65,6 +66,8 @@ const app = {
         thisApp.initPlaylist();
         thisApp.initDiscover();
         thisApp.initSearch();
+        thisApp.initUpperCase();
+        thisApp.initCapitalize();
       });
   },
 
@@ -116,6 +119,30 @@ const app = {
         classNames.nav.active,
         link.getAttribute('href') == '#' + pageId
       );
+    }
+  },
+
+  initUpperCase: function () {
+    const toUpperCaseElements = document.querySelectorAll(select.upperCase);
+
+    for (let element of toUpperCaseElements) {
+      let textElement = element.textContent;
+
+      textElement = textElement.toUpperCase();
+
+      element.textContent = textElement;
+    }
+  },
+
+  initCapitalize: function () {
+    const toCapitalizeElements = document.querySelectorAll(select.capitalize);
+
+    for (let element of toCapitalizeElements) {
+      let textElement = element.textContent;
+
+      textElement = utils.capitalizeFirstLetter(textElement);
+
+      element.textContent = textElement;
     }
   },
 
