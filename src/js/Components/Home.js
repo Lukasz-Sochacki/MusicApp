@@ -1,20 +1,20 @@
-import { templates, select } from '../settings.js';
+import { templates } from '../settings.js';
 
 class Home {
-  constructor() {
+  constructor(element) {
     const thisHome = this;
 
-    thisHome.render();
+    thisHome.render(element);
   }
 
-  render() {
+  render(element) {
     const thisHome = this;
 
     const generatedHTML = templates.home();
 
     thisHome.dom = {};
 
-    thisHome.dom.wrapper = document.querySelector(select.containerOf.home);
+    thisHome.dom.wrapper = element;
     thisHome.dom.wrapper.innerHTML = generatedHTML;
   }
 }

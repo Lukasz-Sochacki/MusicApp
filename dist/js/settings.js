@@ -8,9 +8,18 @@ export const select = {
   containerOf: {
     pages: '#pages',
     home: '.home-wrapper',
-    search: '.search-wrapper',
-    discover: '.discover-wrapper',
-    discover_generatedSong: '.discover__generatedSong',
+    search: {
+      wrapper: '.search-wrapper',
+      filteredSong: '.search__filteredSong',
+      form: '.search__wrapper-form',
+      input: '.search__input',
+      results_title: '.search__results__title span',
+    },
+    discover: {
+      wrapper: '.discover-wrapper',
+      generatedSong: '.discover__generatedSong',
+    },
+
     audio: '.audio-wrapper',
   },
   nav: {

@@ -35,16 +35,18 @@ const app = {
   initSearch: function () {
     const thisApp = this;
 
-    thisApp.searchContainer = document.querySelector(select.containerOf.search);
+    thisApp.searchContainer = document.querySelector(
+      select.containerOf.search.wrapper
+    );
 
-    thisApp.search = new Search(thisApp.searchContainer);
+    thisApp.search = new Search(thisApp.searchContainer, thisApp.data);
   },
 
   initDiscover: function () {
     const thisApp = this;
 
     thisApp.discoverContainer = document.querySelector(
-      select.containerOf.discover
+      select.containerOf.discover.wrapper
     );
 
     thisApp.discover = new Discover(thisApp.discoverContainer, thisApp.data);
@@ -101,7 +103,7 @@ const app = {
         /* run thisApp.activatePage with that ID */
         thisApp.activatePage(id);
         /* change URL hash */
-        window.location.hash = '#' + id;
+        window.location.hash = '#/' + id;
       });
     }
   },
@@ -149,9 +151,9 @@ const app = {
   init: function () {
     const thisApp = this;
 
+    thisApp.initHome();
     thisApp.initData();
     thisApp.initPages();
-    thisApp.initHome();
   },
 };
 

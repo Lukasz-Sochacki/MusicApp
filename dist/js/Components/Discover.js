@@ -40,6 +40,7 @@ class Discover {
       const index = Math.floor(Math.random() * thisDiscover.data.length);
 
       thisDiscover.generatedSong = thisDiscover.data[index];
+
       thisDiscover.clearPlaylist();
       thisDiscover.initPlaylist();
     });
@@ -55,7 +56,7 @@ class Discover {
 
   initPlaylist() {
     const thisDiscover = this;
-    thisDiscover.audioWrapper = select.containerOf.discover_generatedSong;
+    thisDiscover.audioWrapper = select.containerOf.discover.generatedSong;
 
     new AudioPlayer(thisDiscover.generatedSong, thisDiscover.audioWrapper);
 
@@ -65,7 +66,7 @@ class Discover {
   clearPlaylist() {
     const thisDiscover = this;
     thisDiscover.audioWrapper = document.querySelector(
-      select.containerOf.discover_generatedSong
+      select.containerOf.discover.generatedSong
     );
 
     thisDiscover.audioWrapper.innerHTML = '';
