@@ -1,4 +1,4 @@
-import { templates, select } from '../settings.js';
+import { templates, select, classNames } from '../settings.js';
 import AudioPlayer from './AudioPlayer.js';
 
 class Discover {
@@ -29,11 +29,11 @@ class Discover {
     const generateSongLink = document.querySelector(select.nav.chooseSong);
 
     generateSongLink.addEventListener('mousedown', function () {
-      generateSongLink.classList.add('clicked');
+      generateSongLink.classList.add(classNames.clicked);
     });
 
     generateSongLink.addEventListener('mouseup', function () {
-      generateSongLink.classList.remove('clicked');
+      generateSongLink.classList.remove(classNames.clicked);
     });
 
     generateSongLink.addEventListener('click', function () {

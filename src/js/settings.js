@@ -4,10 +4,12 @@ export const select = {
     search: '#template-search',
     discover: '#template-discover',
     audio: '#template-audio',
+    categories: '#template-categories',
   },
   containerOf: {
     pages: '#pages',
     home: '.home-wrapper',
+    categories: '.categories-wrapper',
     search: {
       wrapper: '.search-wrapper',
       filteredSong: '.search__filteredSong',
@@ -27,9 +29,6 @@ export const select = {
     chooseSong: '.discover__wrapper-subtitle',
   },
   player: '.ready-player-',
-
-  upperCase: '.uppercase',
-  capitalize: '.capitalize',
 };
 
 export const classNames = {
@@ -39,6 +38,12 @@ export const classNames = {
   pages: {
     active: 'active',
   },
+  categories: {
+    active: 'active',
+  },
+  upperCase: '.uppercase',
+  capitalize: '.capitalize',
+  clicked: 'clicked',
 };
 
 export const settings = {
@@ -64,5 +69,8 @@ export const templates = {
   ),
   audio: Handlebars.compile(
     document.querySelector(select.templateOf.audio).innerHTML
+  ),
+  categories: Handlebars.compile(
+    document.querySelector(select.templateOf.categories).innerHTML
   ),
 };

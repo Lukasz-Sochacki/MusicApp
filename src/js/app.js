@@ -3,6 +3,7 @@ import Home from './Components/Home.js';
 import Search from './Components/Search.js';
 import Discover from './Components/Discover.js';
 import AudioPlayer from './Components/AudioPlayer.js';
+import Categories from './Components/Categories.js';
 import utils from './utils.js';
 
 const app = {
@@ -52,9 +53,34 @@ const app = {
     thisApp.discover = new Discover(thisApp.discoverContainer, thisApp.data);
   },
 
+  initCategories: function () {
+    const thisApp = this;
+    thisApp.categoriesContainer = document.querySelector(
+      select.containerOf.categories
+    );
+
+    const categoriesTypes = new Set();
+
+    for (let type of thisApp.data) {
+      for (let category of type.categories) {
+        categoriesTypes.add(category);
+      }
+    }
+    const categories = [...categoriesTypes];
+    thisApp.categoriesObject = { categories };
+
+    thisApp.categories = new Categories(
+      thisApp.categoriesContainer,
+      thisApp.categoriesObject,
+      thisApp.data
+    );
+    console.log(categoriesTypes);
+
+    console.log(thisApp.categoriesObject);
+  },
   initData: function () {
     const thisApp = this;
-    thisApp.data = [];
+    thisApp.data = {};
 
     const url = settings.db.url + '/' + settings.db.songs;
 
@@ -64,10 +90,13 @@ const app = {
       })
       .then(function (parsedResponse) {
         console.log('parsedResponse: ', parsedResponse);
+
         thisApp.data = parsedResponse;
         thisApp.initPlaylist();
         thisApp.initDiscover();
         thisApp.initSearch();
+        thisApp.initCategories();
+
         thisApp.initUpperCase();
         thisApp.initCapitalize();
       });
@@ -125,7 +154,7 @@ const app = {
   },
 
   initUpperCase: function () {
-    const toUpperCaseElements = document.querySelectorAll(select.upperCase);
+    const toUpperCaseElements = document.querySelectorAll(classNames.upperCase);
 
     for (let element of toUpperCaseElements) {
       let textElement = element.textContent;
@@ -137,7 +166,9 @@ const app = {
   },
 
   initCapitalize: function () {
-    const toCapitalizeElements = document.querySelectorAll(select.capitalize);
+    const toCapitalizeElements = document.querySelectorAll(
+      classNames.capitalize
+    );
 
     for (let element of toCapitalizeElements) {
       let textElement = element.textContent;

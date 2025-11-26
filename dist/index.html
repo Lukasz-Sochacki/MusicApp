@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon_io/favicon.ico">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -44,6 +45,7 @@
 
     <div id="pages">
         <section id="home">
+            <div class="categories-wrapper container"></div>
             <div class="audio-wrapper container"></div>
             <div class="home-wrapper container"></div>
         </section>
@@ -57,6 +59,22 @@
         </section>
     </div>
 
+    <!-- Handlebars: Categories  -->
+
+    <script id="template-categories" type="text/x-handlebars-template">
+        <section class="categories">
+            <div class="categories__text">
+                <p class="categories__title capitalize">categories:</p>
+                <ul class="categories__list__ul">
+                    {{#each categories}}
+                   <li class="categories__list__li category-{{ this }} capitalize" id="{{ this }}"><span class="categories__item">{{ this }},</span>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>
+    </script>
+
     <!-- Handlebars: AudioPlayer  -->
 
     <script id="template-audio" type="text/x-handlebars-template">
@@ -68,7 +86,7 @@
                     <span class="audio-title">{{ title }}</span>
                 </div>
                 <div class="audio__wrapper-player">
-                    <div class="ready-player- {{ id }} player">
+                    <div class="ready-player-">
                         <audio crossorigin preload="none">
                             <source src="songs/{{ filename }}" type="audio/mpeg">
                          </audio>
