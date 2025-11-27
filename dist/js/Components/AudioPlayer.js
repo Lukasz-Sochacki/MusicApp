@@ -2,7 +2,7 @@ import { templates } from '../settings.js';
 import utils from '../utils.js';
 
 class AudioPlayer {
-  constructor(data, element) {
+  constructor(element, data) {
     const thisAudio = this;
 
     thisAudio.data = data;

@@ -28,7 +28,7 @@ const app = {
     thisApp.audioWrapper = select.containerOf.audio;
 
     for (let song in thisApp.data) {
-      new AudioPlayer(thisApp.data[song], thisApp.audioWrapper);
+      new AudioPlayer(thisApp.audioWrapper, thisApp.data[song]);
     }
     thisApp.initAudioPlayer();
   },
@@ -74,9 +74,9 @@ const app = {
       thisApp.categoriesObject,
       thisApp.data
     );
-    console.log(categoriesTypes);
+    // console.log(categoriesTypes);
 
-    console.log(thisApp.categoriesObject);
+    // console.log(thisApp.categoriesObject);
   },
   initData: function () {
     const thisApp = this;
@@ -96,7 +96,6 @@ const app = {
         thisApp.initDiscover();
         thisApp.initSearch();
         thisApp.initCategories();
-
         thisApp.initUpperCase();
         thisApp.initCapitalize();
       });
