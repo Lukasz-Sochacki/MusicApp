@@ -27,7 +27,18 @@ class Categories {
     );
 
     for (let categoryElement of categoryElements) {
-      categoryElement.addEventListener('click', function () {
+      categoryElement.addEventListener('click', function (event) {
+        const clickedElement = event.target;
+        // console.log(categoryElement.id);
+
+        clickedElement.classList.toggle(classNames.categories.active);
+
+        categoryElements.forEach(function (otherCategoryElement) {
+          if (otherCategoryElement !== categoryElement) {
+            otherCategoryElement.classList.remove(classNames.categories.active);
+          }
+        });
+
         songList.forEach(function (songElement) {
           const songId = parseInt(songElement.dataset.id);
           const song = thisCategories.data.find(function (elem) {
@@ -43,6 +54,12 @@ class Categories {
           if (!song) {
             alert('Piosenka o ID: ' + songId + 'nie istnieje w bazie danych');
             return;
+          }
+
+          if (
+            !categoryElement.classList.contains(classNames.categories.active)
+          ) {
+            songElement.classList.remove(classNames.hidden);
           }
         });
       });

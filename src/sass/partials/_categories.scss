@@ -26,6 +26,11 @@
         &:hover {
           color: $color-gray;
         }
+
+        &.active {
+          color: $color-one;
+          font-weight: $font-bold;
+        }
       }
     }
   }
