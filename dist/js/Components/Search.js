@@ -2,18 +2,18 @@ import { templates, select } from '../settings.js';
 import AudioPlayer from './AudioPlayer.js';
 
 class Search {
-  constructor(element, data) {
+  constructor(element, data, categories) {
     const thisSearch = this;
 
     thisSearch.data = data;
-    thisSearch.render(element);
+    thisSearch.render(element, categories);
     thisSearch.filterSong();
   }
 
-  render(element) {
+  render(element, categories) {
     const thisSearch = this;
 
-    const generatedHTML = templates.search();
+    const generatedHTML = templates.search(categories);
 
     thisSearch.dom = {};
     thisSearch.dom.wrapper = element;
@@ -23,23 +23,48 @@ class Search {
   filterSong() {
     const thisSearch = this;
 
-    const searchForm = document.querySelector(select.containerOf.search.form);
-    const searchInput = document.querySelector(select.containerOf.search.input);
+    thisSearch.searchForm = document.querySelector(
+      select.containerOf.search.form
+    );
+    thisSearch.searchInput = document.querySelector(
+      select.containerOf.search.input
+    );
+    thisSearch.categorySelect = document.querySelector(
+      select.containerOf.search.category
+    );
 
-    searchForm.addEventListener('submit', function (event) {
+    thisSearch.searchForm.addEventListener('submit', function (event) {
       event.preventDefault();
 
       thisSearch.filteredSong = [];
       thisSearch.filteredSong = thisSearch.data.filter(function (song) {
-        if (
-          song.filename
-            .replace(/_|mp3/g, ' ')
-            .toLowerCase()
-            .includes(searchInput.value.toLowerCase())
-        ) {
-          return thisSearch.filteredSong;
+        let arrayCategories = song.categories;
+        let lowerArrayCategories = arrayCategories.map((elem) =>
+          elem.toLowerCase()
+        );
+
+        for (let elem of lowerArrayCategories) {
+          if (thisSearch.categorySelect.value == 'empty') {
+            if (
+              song.filename
+                .replace(/_|mp3/g, ' ')
+                .toLowerCase()
+                .includes(thisSearch.searchInput.value.toLowerCase())
+            ) {
+              return thisSearch.filteredSong;
+            }
+          } else if (
+            song.filename
+              .replace(/_|mp3/g, ' ')
+              .toLowerCase()
+              .includes(thisSearch.searchInput.value.toLowerCase()) &&
+            elem.includes(thisSearch.categorySelect.value.toLowerCase())
+          ) {
+            return thisSearch.filteredSong;
+          }
         }
       });
+
       thisSearch.showResultsTitle();
       thisSearch.clearPlaylist();
       thisSearch.initPlaylist();
@@ -72,7 +97,7 @@ class Search {
     const thisSearch = this;
     thisSearch.audioWrapper = select.containerOf.search.filteredSong;
     for (let song in thisSearch.filteredSong) {
-      new AudioPlayer(thisSearch.filteredSong[song], thisSearch.audioWrapper);
+      new AudioPlayer(thisSearch.audioWrapper, thisSearch.filteredSong[song]);
     }
 
     thisSearch.initAudioPlayer();

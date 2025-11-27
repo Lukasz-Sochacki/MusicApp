@@ -80,7 +80,7 @@
     <script id="template-audio" type="text/x-handlebars-template">
 
         <section class="audio" >
-            <div class="audio__wrapper" data-id="{{ id }}">
+            <div class="audio__wrapper song-{{ id }}" data-id="{{ id }}">
                 <div class="audio__wrapper-info">
                     <span class="audio-author">{{ author }} - </span>
                     <span class="audio-title">{{ title }}</span>
@@ -134,6 +134,13 @@
                 <form class="search__wrapper-form">
                     <label for="search" class="search__name capitalize">name</label>
                     <input type="text" class="search__input" id="search__input" name="search__input">
+                     <label for="search" class="search__name category capitalize">category</label>
+                     <select name="search__category" id="search__category">
+                        <option value="empty"></option>
+                        {{#each categories}}
+                        <option value="{{ this }}">{{ this }}</option>
+                        {{/each}}
+                     </select>
                     <button class="search__button uppercase" type="submit">Search</button>
                 </form>
             </div>

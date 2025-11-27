@@ -16,6 +16,7 @@ export const select = {
       form: '.search__wrapper-form',
       input: '.search__input',
       results_title: '.search__results__title span',
+      category: '#search__category',
     },
     discover: {
       wrapper: '.discover-wrapper',

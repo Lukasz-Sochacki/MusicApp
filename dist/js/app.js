@@ -40,7 +40,11 @@ const app = {
       select.containerOf.search.wrapper
     );
 
-    thisApp.search = new Search(thisApp.searchContainer, thisApp.data);
+    thisApp.search = new Search(
+      thisApp.searchContainer,
+      thisApp.data,
+      thisApp.categoriesObject
+    );
   },
 
   initDiscover: function () {
@@ -74,9 +78,6 @@ const app = {
       thisApp.categoriesObject,
       thisApp.data
     );
-    // console.log(categoriesTypes);
-
-    // console.log(thisApp.categoriesObject);
   },
   initData: function () {
     const thisApp = this;
@@ -94,8 +95,9 @@ const app = {
         thisApp.data = parsedResponse;
         thisApp.initPlaylist();
         thisApp.initDiscover();
-        thisApp.initSearch();
         thisApp.initCategories();
+        thisApp.initSearch();
+
         thisApp.initUpperCase();
         thisApp.initCapitalize();
       });

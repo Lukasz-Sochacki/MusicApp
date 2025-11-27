@@ -58,7 +58,7 @@ class Discover {
     const thisDiscover = this;
     thisDiscover.audioWrapper = select.containerOf.discover.generatedSong;
 
-    new AudioPlayer(thisDiscover.generatedSong, thisDiscover.audioWrapper);
+    new AudioPlayer(thisDiscover.audioWrapper, thisDiscover.generatedSong);
 
     thisDiscover.initAudioPlayer();
   }
