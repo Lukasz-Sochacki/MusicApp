@@ -29,7 +29,6 @@ class Categories {
     for (let categoryElement of categoryElements) {
       categoryElement.addEventListener('click', function (event) {
         const clickedElement = event.target;
-        // console.log(categoryElement.id);
 
         clickedElement.classList.toggle(classNames.categories.active);
 

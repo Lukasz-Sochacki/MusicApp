@@ -1,5 +1,6 @@
 import { templates, select, classNames } from '../settings.js';
 import AudioPlayer from './AudioPlayer.js';
+import FavouriteSongs from './FavouriteSongs.js';
 
 class Discover {
   constructor(element, data) {
@@ -11,6 +12,7 @@ class Discover {
 
     thisDiscover.render(element);
     thisDiscover.getSong();
+    // thisDiscover.favouriteSongs();
   }
 
   render(element) {
@@ -26,23 +28,26 @@ class Discover {
   getSong() {
     const thisDiscover = this;
 
-    const generateSongLink = document.querySelector(select.nav.chooseSong);
+    thisDiscover.generateSongLink = document.querySelector(
+      select.nav.chooseSong
+    );
 
-    generateSongLink.addEventListener('mousedown', function () {
-      generateSongLink.classList.add(classNames.clicked);
+    thisDiscover.generateSongLink.addEventListener('mousedown', function () {
+      thisDiscover.generateSongLink.classList.add(classNames.clicked);
     });
 
-    generateSongLink.addEventListener('mouseup', function () {
-      generateSongLink.classList.remove(classNames.clicked);
+    thisDiscover.generateSongLink.addEventListener('mouseup', function () {
+      thisDiscover.generateSongLink.classList.remove(classNames.clicked);
     });
 
-    generateSongLink.addEventListener('click', function () {
+    thisDiscover.generateSongLink.addEventListener('click', function () {
       const index = Math.floor(Math.random() * thisDiscover.data.length);
 
       thisDiscover.generatedSong = thisDiscover.data[index];
 
       thisDiscover.clearPlaylist();
       thisDiscover.initPlaylist();
+      thisDiscover.favourite = new FavouriteSongs();
     });
   }
 

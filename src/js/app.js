@@ -4,6 +4,7 @@ import Search from './Components/Search.js';
 import Discover from './Components/Discover.js';
 import AudioPlayer from './Components/AudioPlayer.js';
 import Categories from './Components/Categories.js';
+import FavouriteSongs from './Components/FavouriteSongs.js';
 import utils from './utils.js';
 
 const app = {
@@ -79,6 +80,7 @@ const app = {
       thisApp.data
     );
   },
+
   initData: function () {
     const thisApp = this;
     thisApp.data = {};
@@ -97,10 +99,15 @@ const app = {
         thisApp.initDiscover();
         thisApp.initCategories();
         thisApp.initSearch();
-
+        thisApp.initFavourite();
         thisApp.initUpperCase();
         thisApp.initCapitalize();
       });
+  },
+
+  initFavourite: function () {
+    const thisApp = this;
+    thisApp.favourite = new FavouriteSongs();
   },
 
   initPages: function () {

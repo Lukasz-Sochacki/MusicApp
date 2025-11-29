@@ -31,6 +31,7 @@ export const select = {
     chooseSong: '.discover__wrapper-subtitle',
   },
   player: '.ready-player-',
+  playerPlay: '.play-pause-btn',
 
   categoriesSong: {
     list: '.categories__list__li',

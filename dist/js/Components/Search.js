@@ -1,5 +1,6 @@
 import { templates, select } from '../settings.js';
 import AudioPlayer from './AudioPlayer.js';
+import FavouriteSongs from './FavouriteSongs.js';
 
 class Search {
   constructor(element, data, categories) {
@@ -66,8 +67,10 @@ class Search {
       });
 
       thisSearch.showResultsTitle();
+
       thisSearch.clearPlaylist();
       thisSearch.initPlaylist();
+      thisSearch.favourite = new FavouriteSongs();
     });
   }
 
