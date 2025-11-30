@@ -55,7 +55,11 @@ const app = {
       select.containerOf.discover.wrapper
     );
 
-    thisApp.discover = new Discover(thisApp.discoverContainer, thisApp.data);
+    thisApp.discover = new Discover(
+      thisApp.discoverContainer,
+      thisApp.data,
+      thisApp.categoriesObject
+    );
   },
 
   initCategories: function () {
@@ -95,19 +99,19 @@ const app = {
         console.log('parsedResponse: ', parsedResponse);
 
         thisApp.data = parsedResponse;
+
         thisApp.initPlaylist();
-        thisApp.initDiscover();
         thisApp.initCategories();
+        thisApp.initDiscover();
         thisApp.initSearch();
-        thisApp.initFavourite();
         thisApp.initUpperCase();
         thisApp.initCapitalize();
       });
   },
 
-  initFavourite: function () {
+  initFavourite: function (song) {
     const thisApp = this;
-    thisApp.favourite = new FavouriteSongs();
+    thisApp.favourite = new FavouriteSongs(song);
   },
 
   initPages: function () {
@@ -190,9 +194,9 @@ const app = {
   init: function () {
     const thisApp = this;
 
-    thisApp.initHome();
     thisApp.initData();
     thisApp.initPages();
+    thisApp.initHome();
   },
 };
 

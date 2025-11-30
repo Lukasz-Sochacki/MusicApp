@@ -26,10 +26,12 @@ export const select = {
     audio: '.audio-wrapper',
     songs: '.audio__wrapper',
   },
+
   nav: {
     links: '.navigation__menu li a',
     chooseSong: '.discover__wrapper-subtitle',
   },
+
   player: '.ready-player-',
   playerPlay: '.play-pause-btn',
 

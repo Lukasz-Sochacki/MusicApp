@@ -2,23 +2,22 @@ import { templates, select, classNames } from '../settings.js';
 import AudioPlayer from './AudioPlayer.js';
 import FavouriteSongs from './FavouriteSongs.js';
 
-class Discover {
-  constructor(element, data) {
+class Discover extends FavouriteSongs {
+  constructor(element, data, categories) {
+    super();
+
     const thisDiscover = this;
 
     thisDiscover.data = data;
-    // thisDiscover.generatedSong = null;
-    // thisDiscover.AudioPlayer = null;
 
-    thisDiscover.render(element);
+    thisDiscover.render(element, categories);
     thisDiscover.getSong();
-    // thisDiscover.favouriteSongs();
   }
 
-  render(element) {
+  render(element, categories) {
     const thisDiscover = this;
 
-    const generatedHTML = templates.discover();
+    const generatedHTML = templates.discover(categories);
 
     thisDiscover.dom = {};
     thisDiscover.dom.wrapper = element;
@@ -41,13 +40,14 @@ class Discover {
     });
 
     thisDiscover.generateSongLink.addEventListener('click', function () {
-      const index = Math.floor(Math.random() * thisDiscover.data.length);
+      // const index = Math.floor(Math.random() * thisDiscover.data.length);
 
-      thisDiscover.generatedSong = thisDiscover.data[index];
+      thisDiscover.generatedSong =
+        thisDiscover.data[thisDiscover.mostOccuringNumber - 1];
+      console.log(thisDiscover.generatedSong);
 
       thisDiscover.clearPlaylist();
       thisDiscover.initPlaylist();
-      thisDiscover.favourite = new FavouriteSongs();
     });
   }
 

@@ -66,11 +66,11 @@ class Search {
         }
       });
 
-      thisSearch.showResultsTitle();
-
       thisSearch.clearPlaylist();
       thisSearch.initPlaylist();
-      thisSearch.favourite = new FavouriteSongs();
+      thisSearch.favourite = new FavouriteSongs(thisSearch.filteredSong);
+
+      thisSearch.showResultsTitle();
     });
   }
 
