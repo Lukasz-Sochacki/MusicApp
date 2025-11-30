@@ -40,11 +40,12 @@ class Discover extends FavouriteSongs {
     });
 
     thisDiscover.generateSongLink.addEventListener('click', function () {
-      // const index = Math.floor(Math.random() * thisDiscover.data.length);
+      const index = Math.floor(Math.random() * thisDiscover.data.length);
+
+      thisDiscover.generatedSongIndex = thisDiscover.data[index];
 
       thisDiscover.generatedSong =
         thisDiscover.data[thisDiscover.mostOccuringNumber - 1];
-      console.log(thisDiscover.generatedSong);
 
       thisDiscover.clearPlaylist();
       thisDiscover.initPlaylist();
@@ -63,7 +64,14 @@ class Discover extends FavouriteSongs {
     const thisDiscover = this;
     thisDiscover.audioWrapper = select.containerOf.discover.generatedSong;
 
-    new AudioPlayer(thisDiscover.audioWrapper, thisDiscover.generatedSong);
+    if (thisDiscover.generatedSong) {
+      new AudioPlayer(thisDiscover.audioWrapper, thisDiscover.generatedSong);
+    } else {
+      new AudioPlayer(
+        thisDiscover.audioWrapper,
+        thisDiscover.generatedSongIndex
+      );
+    }
 
     thisDiscover.initAudioPlayer();
   }

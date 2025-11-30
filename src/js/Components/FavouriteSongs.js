@@ -43,8 +43,6 @@ class FavouriteSongs {
         thisFavourite.mostOccuringNumber = song;
       }
     }
-    console.log(thisFavourite.mostOccuringNumber);
-
     return thisFavourite.mostOccuringNumber;
   }
 }
