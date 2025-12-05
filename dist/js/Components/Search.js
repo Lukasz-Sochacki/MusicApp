@@ -9,6 +9,7 @@ class Search {
     thisSearch.data = data;
     thisSearch.render(element, categories);
     thisSearch.filterSong();
+    thisSearch.filteredSong = [];
   }
 
   render(element, categories) {
@@ -37,7 +38,6 @@ class Search {
     thisSearch.searchForm.addEventListener('submit', function (event) {
       event.preventDefault();
 
-      thisSearch.filteredSong = [];
       thisSearch.filteredSong = thisSearch.data.filter(function (song) {
         let arrayCategories = song.categories;
         let lowerArrayCategories = arrayCategories.map((elem) =>
@@ -68,9 +68,9 @@ class Search {
 
       thisSearch.clearPlaylist();
       thisSearch.initPlaylist();
-      thisSearch.favourite = new FavouriteSongs(thisSearch.filteredSong);
-
       thisSearch.showResultsTitle();
+
+      thisSearch.favourite = new FavouriteSongs(thisSearch.filteredSong);
     });
   }
 

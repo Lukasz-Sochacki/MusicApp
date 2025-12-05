@@ -3,21 +3,21 @@ import AudioPlayer from './AudioPlayer.js';
 import FavouriteSongs from './FavouriteSongs.js';
 
 class Discover extends FavouriteSongs {
-  constructor(element, data, categories) {
+  constructor(element, data) {
     super();
 
     const thisDiscover = this;
 
     thisDiscover.data = data;
 
-    thisDiscover.render(element, categories);
+    thisDiscover.render(element);
     thisDiscover.getSong();
   }
 
-  render(element, categories) {
+  render(element) {
     const thisDiscover = this;
 
-    const generatedHTML = templates.discover(categories);
+    const generatedHTML = templates.discover();
 
     thisDiscover.dom = {};
     thisDiscover.dom.wrapper = element;
@@ -26,7 +26,6 @@ class Discover extends FavouriteSongs {
 
   getSong() {
     const thisDiscover = this;
-
     thisDiscover.generateSongLink = document.querySelector(
       select.nav.chooseSong
     );
@@ -40,12 +39,12 @@ class Discover extends FavouriteSongs {
     });
 
     thisDiscover.generateSongLink.addEventListener('click', function () {
-      const index = Math.floor(Math.random() * thisDiscover.data.length);
+      console.log(thisDiscover.favouriteFrequency);
+      thisDiscover.maxId = Math.max(
+        ...Object.keys(thisDiscover.favouriteFrequency).map(Number)
+      );
 
-      thisDiscover.generatedSongIndex = thisDiscover.data[index];
-
-      thisDiscover.generatedSong =
-        thisDiscover.data[thisDiscover.mostOccuringNumber - 1];
+      thisDiscover.index = Math.floor(Math.random() * thisDiscover.data.length);
 
       thisDiscover.clearPlaylist();
       thisDiscover.initPlaylist();
@@ -64,12 +63,15 @@ class Discover extends FavouriteSongs {
     const thisDiscover = this;
     thisDiscover.audioWrapper = select.containerOf.discover.generatedSong;
 
-    if (thisDiscover.generatedSong) {
-      new AudioPlayer(thisDiscover.audioWrapper, thisDiscover.generatedSong);
+    if (thisDiscover.data[thisDiscover.maxId]) {
+      new AudioPlayer(
+        thisDiscover.audioWrapper,
+        thisDiscover.data[thisDiscover.maxId - 1]
+      );
     } else {
       new AudioPlayer(
         thisDiscover.audioWrapper,
-        thisDiscover.generatedSongIndex
+        thisDiscover.data[thisDiscover.index]
       );
     }
 

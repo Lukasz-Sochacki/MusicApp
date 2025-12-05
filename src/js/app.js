@@ -10,6 +10,7 @@ import utils from './utils.js';
 const app = {
   initHome: function () {
     const thisApp = this;
+    thisApp.favouriteFrequency = {};
 
     thisApp.homeContainer = document.querySelector(select.containerOf.home);
 
@@ -102,8 +103,9 @@ const app = {
 
         thisApp.initPlaylist();
         thisApp.initCategories();
-        thisApp.initDiscover();
         thisApp.initSearch();
+        thisApp.initDiscover();
+
         thisApp.initUpperCase();
         thisApp.initCapitalize();
       });
