@@ -10,7 +10,6 @@ import utils from './utils.js';
 const app = {
   initHome: function () {
     const thisApp = this;
-    thisApp.favouriteFrequency = {};
 
     thisApp.homeContainer = document.querySelector(select.containerOf.home);
 
@@ -103,17 +102,17 @@ const app = {
 
         thisApp.initPlaylist();
         thisApp.initCategories();
-        thisApp.initSearch();
         thisApp.initDiscover();
+        thisApp.initSearch();
 
         thisApp.initUpperCase();
         thisApp.initCapitalize();
       });
   },
 
-  initFavourite: function (song) {
+  initFavourite: function () {
     const thisApp = this;
-    thisApp.favourite = new FavouriteSongs(song);
+    thisApp.favourite = new FavouriteSongs();
   },
 
   initPages: function () {
@@ -195,6 +194,7 @@ const app = {
 
   init: function () {
     const thisApp = this;
+    window.favouriteFrequency = {};
 
     thisApp.initData();
     thisApp.initPages();

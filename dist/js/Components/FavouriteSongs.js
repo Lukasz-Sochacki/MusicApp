@@ -1,16 +1,12 @@
 class FavouriteSongs {
-  constructor(songs) {
+  constructor() {
     const thisFavourite = this;
 
-    thisFavourite.getFavouriteId(songs);
+    thisFavourite.getFavouriteId();
   }
 
-  getFavouriteId(songs) {
+  getFavouriteId() {
     const thisFavourite = this;
-
-    thisFavourite.favouriteFrequency = {};
-
-    thisFavourite.songs = songs;
 
     thisFavourite.songs = document.querySelectorAll('[aria-label="Play"]');
 
@@ -21,10 +17,10 @@ class FavouriteSongs {
         if (playPause.ariaLabel !== 'Play') {
           const id = clickedElement.closest('.audio__wrapper').dataset.id;
 
-          if (thisFavourite.favouriteFrequency[id]) {
-            return (thisFavourite.favouriteFrequency[id] += 1);
+          if (window.favouriteFrequency[id]) {
+            return (window.favouriteFrequency[id] += 1);
           } else {
-            return (thisFavourite.favouriteFrequency[id] = 1);
+            return (window.favouriteFrequency[id] = 1);
           }
         }
       });

@@ -10,6 +10,7 @@ class Search {
     thisSearch.render(element, categories);
     thisSearch.filterSong();
     thisSearch.filteredSong = [];
+    window.favouriteFrequency = {};
   }
 
   render(element, categories) {
@@ -70,7 +71,7 @@ class Search {
       thisSearch.initPlaylist();
       thisSearch.showResultsTitle();
 
-      thisSearch.favourite = new FavouriteSongs(thisSearch.filteredSong);
+      new FavouriteSongs(thisSearch.filteredSong);
     });
   }
 

@@ -11,6 +11,7 @@ class Discover extends FavouriteSongs {
     thisDiscover.data = data;
 
     thisDiscover.render(element);
+
     thisDiscover.getSong();
   }
 
@@ -39,13 +40,10 @@ class Discover extends FavouriteSongs {
     });
 
     thisDiscover.generateSongLink.addEventListener('click', function () {
-      console.log(thisDiscover.favouriteFrequency);
       thisDiscover.maxId = Math.max(
-        ...Object.keys(thisDiscover.favouriteFrequency).map(Number)
+        ...Object.keys(window.favouriteFrequency).map(Number)
       );
-
       thisDiscover.index = Math.floor(Math.random() * thisDiscover.data.length);
-
       thisDiscover.clearPlaylist();
       thisDiscover.initPlaylist();
     });
@@ -68,7 +66,7 @@ class Discover extends FavouriteSongs {
         thisDiscover.audioWrapper,
         thisDiscover.data[thisDiscover.maxId - 1]
       );
-    } else {
+    } else if (!thisDiscover.data[thisDiscover.maxId]) {
       new AudioPlayer(
         thisDiscover.audioWrapper,
         thisDiscover.data[thisDiscover.index]
